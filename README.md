@@ -11,7 +11,7 @@ eg: profile= prod, dev, qa or the default
 
 1.Please refer below link and download the particular Java Cryptography Extension (JCE) jar files
 ( https://www.oracle.com/technetwork/java/javase/downloads/jce-all-download-5170447.html.) and
-put those jar files into the JRE security folder, and restart the application.
+put those jar files into the JRE security folder and restart the application.
 
 2.application.yml of the <b>config server</b> must need another bootstrap.yml.
  ```bash
@@ -62,11 +62,42 @@ put those jar files into the JRE security folder, and restart the application.
         spring.driver-class-name=com.mysql.jdbc.Driver
   ```
 
-## Usage
+## Config Consumer(Your Service) Setup
+
+
+```bash
+ eg:   ***If*** profile= dev ,application name= item and encrypt.key=web then
+                application.yml of your service.                     
+            
+            spring:
+              application:
+                name: item
+              profiles:
+                active: dev
+            encrypt:
+              key: web
+            security:
+              oauth2:
+                resource:
+                  token-info-uri: http://localhost:8090/oauth/check_token
+                client:
+                  client-id: web
+                  client-secret: web
+    
+```
+```bash
+    eg : bootstrap.yml looks like this.
+            spring:
+              cloud:
+                config:
+                  uri: http://localhost:8091   #***this is the config server running port***
+```
 
 
 
-## Contributing
+## Help Desk
+
+If there any issue feel free to contact us ;-D.
 
 
 ## License
