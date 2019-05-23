@@ -11,7 +11,7 @@ eg: profile= prod, dev, qa or the default
 
 1.Please refer below link and download the particular Java Cryptography Extension (JCE) jar files
 ( https://www.oracle.com/technetwork/java/javase/downloads/jce-all-download-5170447.html.) and
-put those jar files into the JRE security folder, and restart the application.
+put those jar files into the JRE security folder and restart the application.
 
 2.application.yml of the <b>config server</b> must need another bootstrap.yml.
  ```bash
@@ -62,7 +62,9 @@ put those jar files into the JRE security folder, and restart the application.
         spring.driver-class-name=com.mysql.jdbc.Driver
   ```
 
-## Usage
+## Config Consumer(Your Service) Setup
+
+
 
 
 
