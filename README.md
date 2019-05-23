@@ -65,10 +65,39 @@ put those jar files into the JRE security folder and restart the application.
 ## Config Consumer(Your Service) Setup
 
 
+```bash
+ eg:   ***If*** profile= dev ,application name= item and encrypt.key=web then
+                application.yml of your service.                     
+            
+            spring:
+              application:
+                name: item
+              profiles:
+                active: dev
+            encrypt:
+              key: web
+            security:
+              oauth2:
+                resource:
+                  token-info-uri: http://localhost:8090/oauth/check_token
+                client:
+                  client-id: web
+                  client-secret: web
+    
+```
+```bash
+    eg : bootstrap.yml looks like this.
+            spring:
+              cloud:
+                config:
+                  uri: http://localhost:8091   #***this is the config server running port***
+```
 
 
 
-## Contributing
+## Help Desk
+
+If there any issue feel free to contact us ;-D.
 
 
 ## License
